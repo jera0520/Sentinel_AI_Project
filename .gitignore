@@ -1,13 +1,7 @@
 # 대용량 파일 제외
 *.weights
-*.so
 *.tar.xz
 *.run
-
-# 데이터셋 폴더 제외 (용량이 큼)
-Dataset/
-darknet/backup/*.weights
-cudnn-linux-x86_64-*
 
 # Python
 __pycache__/
@@ -32,3 +26,23 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+
+# Dataset 내용물 제외 (폴더 구조는 유지)
+Dataset/Data/Keypoint/
+
+# Darknet 대용량 파일 제외
+darknet/**/*.weights
+darknet/**/*.so
+darknet/yolov4.*
+darknet/build/
+darknet/.git/
+darknet/3rdparty/
+darknet/scripts/
+darknet/src/
+darknet/obj/
+darknet/results/
+darknet/*.jpg
+darknet/*.sh
+darknet/darknet
+darknet/libdarknet.so
+darknet/uselib
