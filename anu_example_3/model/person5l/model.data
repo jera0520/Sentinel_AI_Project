@@ -1,0 +1,5 @@
+classes= 1
+train  = data/person.txt
+valid  = data/valid_person.txt
+names = model/person5l/obj.names
+backup = backup/
