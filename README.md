@@ -114,4 +114,4 @@ python3 main_scale_v2.py
 
 ---
 
-**Last Update**: 2024.10.27
+**Last Update**: 2025.10.27
