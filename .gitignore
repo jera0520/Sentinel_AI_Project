@@ -30,6 +30,9 @@ Thumbs.db
 # Dataset 내용물 제외 (폴더 구조는 유지)
 Dataset/Data/Keypoint/
 
+# Archive - 대용량 모델 가중치 및 데이터 제외
+archive/**/*.weights
+
 # Darknet 대용량 파일 제외
 darknet/**/*.weights
 darknet/**/*.so
