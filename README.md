@@ -1,117 +1,200 @@
 # 🛡️ Sentinel AI Project
 
-공사 현장 안전 모니터링 AI 시스템
+> 공사 현장 안전을 위한 AI 기반 실시간 모니터링 시스템
 
-## 📋 프로젝트 개요
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
-실시간 영상 분석을 통한 공사장 작업자 안전 모니터링 시스템
-- 헬멧 착용 여부 자동 감지
-- 작업자 쓰러짐 실시간 탐지
-- 원본/업스케일 영상 비교 분석
+## 📋 프로젝트 소개
 
-## 🎯 주요 성과
+Sentinel AI는 공사 현장에서 작업자의 안전을 실시간으로 모니터링하는 딥러닝 기반 영상 분석 시스템입니다.
 
+### 핵심 기능
+- 🎯 **실시간 객체 탐지**: YOLOv4 기반 작업자 및 안전장비 인식
+- ⛑️ **헬멧 착용 검증**: 작업자의 헬멧 착용 여부 자동 확인
+- 🚨 **낙상 사고 감지**: 쓰러진 작업자 즉시 탐지
+- 📹 **영상 품질 향상**: FFmpeg 기반 실시간 업스케일링
+- 🎬 **멀티프로세싱**: 병렬 처리를 통한 30 FPS 실시간 분석
+
+### 주요 성과
 - **검출 정확도**: 92% (mAP 87%)
-- **처리 속도**: 30 FPS (실시간)
-- **모델 크기**: 245MB
-- **오검출률**: 5% (기존 30% → 25%p 개선)
+- **처리 속도**: 30 FPS (실시간 처리)
+- **오검출률**: 5% (기존 대비 25%p 개선)
+- **모델 크기**: 245MB (최적화)
 
-## 🏗️ 시스템 구성
+## 🚀 빠른 시작 (Quick Start)
 
-### 모델
-- **YOLOv4** (Darknet): 객체 탐지
-- **ByteTrack**: 객체 추적 (Kalman Filter)
-- **3개 전문 모델**:
-  - person5l: 사람 탐지
-  - helmet_resort_v2: 헬멧 분류
-  - falldown_v3: 쓰러짐 감지
+### 사전 요구사항
+- Python 3.10 이상
+- CUDA 11.x (GPU 사용 시)
+- FFmpeg
 
-### 핵심 기술
-- **TopDown 2단계 검출**: 환경 배제 후 헬멧 확인
-- **스코어링 시스템**: 프레임 누적 판단 (-100~100점)
-- **FFmpeg 파이프라인**: 실시간 영상 처리 및 업스케일
-- **멀티프로세싱**: 3개 프로세스 병렬 실행
+### 설치
 
-## 📊 데이터
+```bash
+# 저장소 클론
+git clone https://github.com/jera0520/Sentinel_AI_Project.git
+cd Sentinel_AI_Project
 
-### 수집
-- 출처: AI Hub "공사현장 안전장비 인식 이미지"
-- 원본: 23,899장
+# 가상환경 생성 및 활성화
+python3 -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
 
-### 재정제
-- 최종: 1,000장 (균형 분포)
-- 전략: 양보다 **품질과 균형** 우선
-- 결과: mAP 45% → 87% (+42%p)
+# 의존성 설치
+pip install -r archive/sentinel_examples/requirements.txt
+```
 
-## 🛠️ 개발 환경
+### 실행
 
-- **GPU**: NVIDIA RTX 3060 (12GB)
-- **CUDA**: 11.8 + cuDNN 8.9
-- **OS**: Ubuntu 22.04 LTS
-- **언어**: Python 3.10
-- **라이브러리**: OpenCV, FFmpeg, NumPy
+```bash
+# 데모 실행 (안전 모드)
+python examples/run_demo.py
 
-## 📁 디렉토리 구조
+# 또는 직접 실행 (모델 파일이 있는 경우)
+cd archive/sentinel_examples
+python main_scale_v2.py
+```
+
+**참고**: 모델 가중치 파일(.weights)은 크기 제한으로 저장소에 포함되지 않습니다. 실제 실행을 위해서는 학습된 모델이 필요합니다.
+
+## 📁 프로젝트 구조
 
 ```
 Sentinel_AI_Project/
-├── anu_example_3/          # 최종 완성 시스템 ⭐
-│   ├── main_scale_v2.py    # 메인 실행 파일
-│   ├── model/              # 3개 모델
-│   └── videos/             # 테스트 영상
-├── darknet/                # YOLOv4 학습 환경
-├── *.png                   # PPT용 시각 자료
-└── *.md                    # 문서
+├── docs/                           # 📚 문서
+│   ├── GUIDE_TWO_STAGE_PIPELINE.md # 2단계 파이프라인 가이드
+│   ├── IMPLEMENTATION_SUMMARY.md   # 구현 요약
+│   ├── PPT_04_프로젝트_수행_경과.md # 프로젝트 발표 자료
+│   └── ...
+├── src/
+│   └── scripts/                    # 🔧 유틸리티 스크립트
+│       ├── convert_json_to_yolo.py # JSON → YOLO 포맷 변환
+│       ├── create_data_distribution.py # 데이터 분포 분석
+│       └── create_slide5_visuals.py    # 시각화 생성
+├── archive/                        # 📦 아카이브
+│   ├── Dataset/                    # 학습 데이터셋 (구조만 보존)
+│   ├── sentinel_examples/          # ⭐ 완성된 시스템
+│   │   ├── main_scale_v2.py       # 메인 실행 파일
+│   │   ├── lib/                   # 라이브러리 모듈
+│   │   ├── model/                 # 학습된 모델 (*.weights 제외)
+│   │   └── videos/                # 테스트 영상
+│   └── *.png                      # 분석 결과 시각화
+├── examples/                       # 💡 사용 예제
+│   └── run_demo.py                # 안전 데모 실행 스크립트
+├── .github/
+│   └── workflows/
+│       └── lint.yml               # CI/CD - 코드 린팅
+├── README.md                      # 이 파일
+├── LICENSE                        # MIT 라이선스
+└── .gitignore                     # Git 제외 파일
+
 ```
 
-## 🚀 실행 방법
+## 🏗️ 시스템 아키텍처
 
-```bash
-cd anu_example_3
-python3 main_scale_v2.py
+### 처리 파이프라인
+
+```
+입력 영상 → VideoParser → DetectParser → DispEvent → 출력
+            (업스케일)    (탐지/추적)     (시각화)
 ```
 
-## 📈 성능 지표
+### 주요 컴포넌트
+
+1. **VideoParser**: 영상 로드 및 FFmpeg 기반 업스케일링
+2. **DetectParser**: YOLOv4 객체 탐지 + ByteTrack 추적
+3. **DispEvent**: 결과 시각화 및 스코어링 시스템
+
+### 사용 모델
+
+- **person5l**: 사람 탐지 전문 모델
+- **helmet_resort_v2**: 헬멧 착용 분류
+- **falldown_v3**: 낙상 사고 감지
+
+## 📊 성능 지표
 
 | 항목 | 1차 학습 | 재학습 (최종) | 개선 |
-|-----|---------|-------------|-----|
+|------|---------|-------------|------|
 | mAP | 45% | 87% | +42%p |
 | 정확도 | 60% | 92% | +32%p |
 | 오검출률 | 30% | 5% | -25%p |
 | 처리 속도 | 25 FPS | 30 FPS | +5 FPS |
 
-## 💡 핵심 인사이트
+## 🎓 핵심 기술
 
-> "데이터 양보다 품질과 균형이 더 중요하다"
+### TopDown 2단계 검출
+1. **1단계**: 사람 영역 탐지 및 추출
+2. **2단계**: 추출된 영역에서 헬멧 착용 여부 분류
 
-23,899장 → 1,000장으로 줄였지만, 성능은 2배 향상
+### 스코어링 시스템
+- 프레임별 누적 점수 계산 (-100 ~ 100)
+- 일시적 오류에 강건한 판단
+- 자원 효율적 경고 시스템
+
+### 멀티프로세싱
+- 3개 프로세스 병렬 실행
+- Queue 기반 비동기 통신
+- 실시간 처리 보장
 
 ## 📚 문서
 
-- `IMPLEMENTATION_SUMMARY.md`: 구현 완료 요약
-- `PPT_04_프로젝트_수행_경과.md`: 발표 자료
-- `assignment.txt`: 과제 요구사항
-- `gemini.md.txt`: 학습 과정 노트
+자세한 내용은 다음 문서를 참고하세요:
 
-## 🎓 학습 내용
+- [2단계 파이프라인 가이드](docs/GUIDE_TWO_STAGE_PIPELINE.md): 비전공자를 위한 상세 구현 가이드
+- [구현 요약](docs/IMPLEMENTATION_SUMMARY.md): 프로젝트 완료 요약
+- [프로젝트 발표 자료](docs/PPT_04_프로젝트_수행_경과.md): 진행 과정 발표 자료
+- [과제 요구사항](docs/assignment.txt): 원래 과제 명세
+- [학습 노트](docs/gemini.md.txt): 개발 과정 기록
 
-- YOLOv4 커스텀 모델 학습 (8,000 iterations)
-- 데이터 품질 개선 (편향 제거)
-- TopDown 방식 채택 (오검출 감소)
-- 스코어링 시스템 (자원 효율)
-- 멀티프로세싱 파이프라인
+## 🛠️ 개발 환경
 
-## 📊 시각 자료
+- **OS**: Ubuntu 22.04 LTS
+- **GPU**: NVIDIA RTX 3060 (12GB VRAM)
+- **CUDA**: 11.8 + cuDNN 8.9
+- **언어**: Python 3.10
+- **주요 라이브러리**: 
+  - OpenCV 4.x
+  - NumPy < 2.0
+  - FFmpeg-python
 
-- `data_*.png`: 데이터 분석 그래프
-- `slide5_*.png`: 재정제 과정 시각화
+## 💡 주요 인사이트
 
-## 👥 개발
+> **"데이터 양보다 품질과 균형이 더 중요하다"**
 
-- 프로젝트: Sentinel AI
-- 목표: 공사 현장 안전 모니터링
+- 원본 23,899장 → 정제 1,000장
+- 데이터 양 감소에도 성능 2배 향상
+- 클래스 불균형 해소가 핵심
+
+## 🔬 데이터
+
+### 출처
+- AI Hub "공사현장 안전장비 인식 이미지" 데이터셋
+
+### 재정제 전략
+1. 클래스 균형 맞춤
+2. 품질 낮은 이미지 제거
+3. 다양한 환경 조건 확보
+4. 중복 및 유사 이미지 제거
+
+### 결과
+- **최종 데이터셋**: 1,000장 (균형 분포)
+- **성능 향상**: mAP 45% → 87% (+42%p)
+
+## 🤝 기여
+
+이 프로젝트는 포트폴리오 목적으로 제작되었습니다. 
+질문이나 제안사항이 있으시면 Issue를 등록해 주세요.
+
+## 📄 라이선스
+
+이 프로젝트는 MIT 라이선스 하에 배포됩니다. 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
+
+## 👤 개발자
+
+- **jera0520**
+- 프로젝트: Sentinel AI - 공사 현장 안전 모니터링
 - 기간: 2024.10
 
 ---
 
-**Last Update**: 2025.10.27
+**Last Update**: 2025.01.06

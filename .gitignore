@@ -11,6 +11,10 @@ __pycache__/
 .Python
 venv/
 env/
+*.egg-info/
+dist/
+build/
+*.egg
 
 # OS
 .DS_Store
@@ -28,7 +32,13 @@ Thumbs.db
 *.swo
 
 # Dataset 내용물 제외 (폴더 구조는 유지)
-Dataset/Data/Keypoint/
+archive/Dataset/Data/Keypoint/
+
+# Archive - 대용량 데이터 제외
+archive/**/*.weights
+archive/**/*.tar.xz
+archive/**/*.zip
+archive/**/detected_crops/
 
 # Darknet 대용량 파일 제외
 darknet/**/*.weights
@@ -46,3 +56,14 @@ darknet/*.sh
 darknet/darknet
 darknet/libdarknet.so
 darknet/uselib
+
+# Model files (대용량)
+*.h5
+*.pb
+*.onnx
+*.pt
+*.pth
+
+# Log files
+*.log
+logs/
