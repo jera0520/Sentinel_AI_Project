@@ -11,24 +11,72 @@ __pycache__/
 .Python
 venv/
 env/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+*.cover
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.log
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json
 
 # OS
 .DS_Store
 Thumbs.db
+desktop.ini
 
 # 임시 파일
 *.tmp
 *.bak
 *~
+.temp/
+tmp/
 
 # IDE
 .vscode/
 .idea/
 *.swp
 *.swo
+*.sublime-project
+*.sublime-workspace
+.project
+.pydevproject
+
+# Data & Model patterns
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+*.model
+data/
+datasets/
+models/
+checkpoints/
+logs/
 
 # Dataset 내용물 제외 (폴더 구조는 유지)
 Dataset/Data/Keypoint/
+archive/Dataset/Data/Keypoint/
 
 # Darknet 대용량 파일 제외
 darknet/**/*.weights
