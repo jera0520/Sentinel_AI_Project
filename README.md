@@ -253,7 +253,7 @@ Week 11-12: 최적화 및 문서화
 ### 모델 학습 결과 (Loss Convergence)
 
 <p align="center">
-  <img src="LOSS_GRAPH_URL" width="80%"/>
+  <img src="https://github.com/user-attachments/assets/e9ff9307-0e99-456e-bb11-de6dfede2d3f" width="80%"/>
   <br>
   <em>YOLOv4 8,000 Iterations 학습 결과: Average Loss 0.0197 도달 및 수렴</em>
 </p>
