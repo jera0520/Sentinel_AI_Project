@@ -54,7 +54,7 @@
 ### 전처리 과정
 
 <p align="center">
-  <img src="images/data_preprocessing.png" width="80%"/>
+  <img src="data_preprocessing.png" width="80%"/>
   <br>
   <em>JSON → YOLO 형식 변환 과정 (총 23,899개 파일 변환)</em>
 </p>
@@ -72,7 +72,7 @@
 ### 초기 데이터 문제점 발견
 
 <p align="center">
-  <img src="images/data_problems.png" width="80%"/>
+  <img src="data_problems.png" width="80%"/>
   <br>
   <em>1차 학습 데이터의 3가지 주요 문제점</em>
 </p>
