@@ -54,7 +54,7 @@
 ### 전처리 과정
 
 <p align="center">
-  <img src="data_preprocessing.png" width="80%"/>
+  <img src="https://github.com/user-attachments/assets/bdc4ff7c-8197-45a2-906d-db26c42b5759" width="80%"/>
   <br>
   <em>JSON → YOLO 형식 변환 과정 (총 23,899개 파일 변환)</em>
 </p>
