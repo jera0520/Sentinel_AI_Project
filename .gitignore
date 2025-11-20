@@ -49,8 +49,9 @@ data/train/
 data/valid/
 *.jpg
 *.png
-*.mp4
 *.avi
+# Allow demo.mp4
+!demo.mp4
 
 # Logs
 *.log
