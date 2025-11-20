@@ -72,7 +72,7 @@
 ### 초기 데이터 문제점 발견
 
 <p align="center">
-  <img src="images/data_problems.jpg" width="80%"/>
+  <img src="images/data_problems.png" width="80%"/>
   <br>
   <em>1차 학습 데이터의 3가지 주요 문제점</em>
 </p>
