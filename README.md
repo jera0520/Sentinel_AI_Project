@@ -133,9 +133,9 @@ Sentinel_AI_Project/
 
 <div align="center">
 
-| **김진현** |
-| :------: |
-| [@jera0520](https://github.com/jera0520) |
+| **김진현** | **황유미** |
+| :------: | :------: |
+| [@jera0520](https://github.com/jera0520) | [@hwangyumi](https://github.com/hwangyumi) |
 
 </div>
 
