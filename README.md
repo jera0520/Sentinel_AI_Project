@@ -1,5 +1,7 @@
 # 🛡️ Sentinel AI: 공사장 안전 모니터링 시스템
 
+![demo](demo.gif)
+
 **Sentinel AI**는 *Sentinel + AI*의 합성어로,
 
 공사 현장의 **파수꾼(Sentinel)**이 되어 작업자의 안전을 **AI 기술로 실시간 모니터링**하는 시스템입니다.
