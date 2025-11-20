@@ -1,6 +1,8 @@
 # 🛡️ Sentinel AI: 공사장 안전 모니터링 시스템
 
-![demo](demo.gif)
+<p align="center">
+  <img src="demo.gif" width="100%"/>
+</p>
 
 **Sentinel AI**는 *Sentinel + AI*의 합성어로,
 
