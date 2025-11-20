@@ -47,9 +47,10 @@ venv.bak/
 Dataset/
 data/train/
 data/valid/
-*.jpg
-*.png
 *.avi
+# Allow images folder
+!images/*.jpg
+!images/*.png
 # Allow demo.mp4
 !demo.mp4
 
