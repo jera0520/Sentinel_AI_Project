@@ -1,0 +1,74 @@
+# .gitignore for Sentinel AI Project
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Model Weights (large files)
+*.weights
+*.h5
+*.pb
+*.onnx
+*.tflite
+
+# Data
+Dataset/
+data/train/
+data/valid/
+*.jpg
+*.png
+*.mp4
+*.avi
+
+# Logs
+*.log
+logs/
+darknet/backup/
+darknet/results/
+
+# Temporary
+temp/
+tmp/
+detected_crops/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Darknet specific
+darknet/*.o
+darknet/darknet
+darknet/uselib
+darknet/*.exe
