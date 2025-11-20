@@ -379,7 +379,7 @@ Week 11-12: 최적화 및 문서화
 
 ## 📧 연락처
 **Kim Jin Hyeon**  
-📧 jera0520@naver.com  
+📧 impactamrker.marketing@gmail.com  
 🔗 [GitHub](https://github.com/jera0520)
 
 ---
